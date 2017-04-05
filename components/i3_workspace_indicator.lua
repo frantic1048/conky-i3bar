@@ -21,7 +21,7 @@ return function (opt)
         workspaces[i] = nil
     end
 
-    for w in new_workspaces do
+    for i, w in ipairs(new_workspaces) do
         workspaces[w['num']] = {
             ['num'] = w['num'],
             ['visible'] = w['visible']

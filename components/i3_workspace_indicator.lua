@@ -29,7 +29,7 @@ return function (opt)
     end
 
     -- draw small text 'workspace'
-    ypos = ypos + 14
+    ypos = ypos + 16
     r, g, b, a = 0.9, 0.9, 0.9, 0.9
     cairo_move_to(opt.cr, xpos, ypos)
     cairo_select_font_face(

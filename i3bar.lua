@@ -74,11 +74,11 @@ function conky_i3bar() -- luacheck: ignore conky_i3bar
     end -- function draw_component
 
     if updates>3 then -- start drawing
-        draw_component(i3bar_arch_logo, {x = 3, y = 5})
-        draw_component(i3bar_i3_workspace_indicator, {x = 48, y = 2})
+        draw_component(i3bar_arch_logo, {x = 3, y = 0})
+        draw_component(i3bar_i3_workspace_indicator, {x = 48, y = 0})
         draw_component(i3bar_sys_load, {x = 216, y = 0})
         draw_component(i3bar_gpu_load, {x = 549, y = 0})
-        draw_component(i3bar_date_time, {x = 876, y = 19})
+        draw_component(i3bar_date_time, {x = 876, y = 0})
         draw_component(i3bar_clementine_play, {x = 1300, y = 18})
     end
 

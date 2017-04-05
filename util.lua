@@ -68,10 +68,10 @@ end -- function skewY
 
 -- Draw SVG function
 -- Usage:
--- draw_svg({x=0,y=0,h=20,w=20,file="/path/to/awesome.svg"})
+--   draw_svg({x=0,y=0,h=20,w=20,file="/path/to/awesome.svg"})
 function i3bar_util.draw_svg(im)
-    local x, y, w, h = nil, nil, nil, nil
-    local file = nil
+    local x, y, w, h
+    local file
     x = (im.x or 0)
     y = (im.y or 0)
     w = (im.w or 0)
@@ -97,18 +97,18 @@ function i3bar_util.draw_svg(im)
 
     rsvg_destroy_handle(handle)
     handle = nil
-    dimensions = nil
 end -- function draw_svg
 
 
 
 -- Draw raster image function
--- https://github.com/brndnmtthws/conky/wiki/Using-Lua-scripts-in-conky:-Useful-functions-and-code#image-display-function
 -- usage:
--- image({x=100,y=100,h=50,w=50,file="/home/username/cute_puppy.png"})
+--   image({x=100,y=100,h=50,w=50,file="/home/username/cute_puppy.png"})
+-- Ref:
+--   https://github.com/brndnmtthws/conky/wiki/Using-Lua-scripts-in-conky:-Useful-functions-and-code#image-display-function
 function i3bar_util.draw_raster(im)
-    local x, y, w, h = nil, nil, nil, nil
-    local file = nil
+    local x, y, w, h
+    local file
     x = (im.x or 0)
     y = (im.y or 0)
     w = (im.w or 0)
@@ -118,7 +118,7 @@ function i3bar_util.draw_raster(im)
     ---------------------------------------------
     local show = imlib_load_image(file)
     if show == nil then return end
-    local width, height = 0, 0
+    local width, height
     imlib_context_set_image(show)
     if tonumber(w) == 0 then
         width = imlib_image_get_width()
@@ -140,6 +140,7 @@ function i3bar_util.draw_raster(im)
     imlib_render_image_on_drawable(x, y)
     imlib_free_image()
     show = nil
+    scaled = nil
 end -- function draw_raster
 
 return i3bar_util

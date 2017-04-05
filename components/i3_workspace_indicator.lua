@@ -1,6 +1,6 @@
 local json = require 'json'
 
-local i3bar_util = require "util"
+local i3bar_util = require 'util'
 
 -- i3-wm workspace indicator
 -- for i3 wm configured with 10 total workspaces (i3's default)
@@ -9,7 +9,7 @@ return function (opt)
     local ypos = opt.y
 
     -- text color
-    local r, g, b, a = 1, 1, 1, 1
+    local r, g, b, a
 
     -- fetch i3 wm workspace information
     local workspacesData = conky_parse('${exec i3-msg -t get_workspaces}')
@@ -21,7 +21,7 @@ return function (opt)
         workspaces[i] = nil
     end
 
-    for i, w in ipairs(new_workspaces) do
+    for w in new_workspaces do
         workspaces[w['num']] = {
             ['num'] = w['num'],
             ['visible'] = w['visible']
@@ -46,7 +46,7 @@ return function (opt)
     ypos = ypos - 14
     i3bar_util.draw_svg({cr = opt.cr,
         x = xpos, y = ypos,
-        file = opt.RESOURCE_PATH .. "workspace-frame.svg"})
+        file = opt.RESOURCE_PATH .. 'workspace-frame.svg'})
 
     xpos = xpos + 34
     -- upper indicator
@@ -57,24 +57,24 @@ return function (opt)
             -- empty workspace
             i3bar_util.draw_svg({cr = opt.cr,
             x = xpos, y = ypos,
-            file = opt.RESOURCE_PATH .. "workspace-upper_empty.svg"})
+            file = opt.RESOURCE_PATH .. 'workspace-upper_empty.svg'})
         else
             if workspaces[i]['urgent'] == true then
                 -- urgent
                 i3bar_util.draw_svg({cr = opt.cr,
                 x = xpos, y = ypos,
-                file = opt.RESOURCE_PATH .. "workspace-upper_urgent.svg"})
+                file = opt.RESOURCE_PATH .. 'workspace-upper_urgent.svg'})
             elseif workspaces[i]['visible'] == true then
                 -- present
                 present_workspace_number = i
                 i3bar_util.draw_svg({cr = opt.cr,
                 x = xpos, y = ypos,
-                file = opt.RESOURCE_PATH .. "workspace-upper_present.svg"})
+                file = opt.RESOURCE_PATH .. 'workspace-upper_present.svg'})
             else
                 -- normal
                 i3bar_util.draw_svg({cr = opt.cr,
                 x = xpos, y = ypos,
-                file = opt.RESOURCE_PATH .. "workspace-upper_normal.svg"})
+                file = opt.RESOURCE_PATH .. 'workspace-upper_normal.svg'})
             end
         end
     end
@@ -88,24 +88,24 @@ return function (opt)
             -- empty workspace
             i3bar_util.draw_svg({cr = opt.cr,
             x = xpos, y = ypos,
-            file = opt.RESOURCE_PATH .. "workspace-lower_empty.svg"})
+            file = opt.RESOURCE_PATH .. 'workspace-lower_empty.svg'})
         else
             if workspaces[i]['urgent'] == true then
                 -- urgent
                 i3bar_util.draw_svg({cr = opt.cr,
                 x = xpos, y = ypos,
-                file = opt.RESOURCE_PATH .. "workspace-lower_urgent.svg"})
+                file = opt.RESOURCE_PATH .. 'workspace-lower_urgent.svg'})
             elseif workspaces[i]['visible'] == true then
                 -- present
                 present_workspace_number = i
                 i3bar_util.draw_svg({cr = opt.cr,
                 x = xpos, y = ypos,
-                file = opt.RESOURCE_PATH .. "workspace-lower_present.svg"})
+                file = opt.RESOURCE_PATH .. 'workspace-lower_present.svg'})
             else
                 -- normal
                 i3bar_util.draw_svg({cr = opt.cr,
                 x = xpos, y = ypos,
-                file = opt.RESOURCE_PATH .. "workspace-lower_normal.svg"})
+                file = opt.RESOURCE_PATH .. 'workspace-lower_normal.svg'})
             end
         end
     end

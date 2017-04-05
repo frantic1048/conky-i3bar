@@ -6,7 +6,7 @@ return function (opt)
     local xpos = opt.x
     local ypos = opt.y
 
-    local r, g, b, a = 1, 1, 1, 1
+    local r, g, b, a
     local bar_width = 160
     local bar_height = 5
     local bar_skewX  = 0.75
@@ -35,7 +35,7 @@ return function (opt)
     ypos = ypos - 16
     i3bar_util.draw_svg({cr = opt.cr,
         x = xpos, y = ypos,
-        file = opt.RESOURCE_PATH .. "cpu-load-frame.svg"})
+        file = opt.RESOURCE_PATH .. 'cpu-load-frame.svg'})
 
     -- bars
     xpos = xpos + 9

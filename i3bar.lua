@@ -16,7 +16,7 @@
 
 require 'cairo'
 
-local PROJECT_ROOT = debug.getinfo(1).source:match("@?(.*/)")
+local PROJECT_ROOT = debug.getinfo(1).source:match('@?(.*/)')
 package.path = PROJECT_ROOT .. '?.lua;' .. package.path
 local RESOURCE_PATH = PROJECT_ROOT .. 'resource/'
 
@@ -27,10 +27,11 @@ local i3bar_gpu_load = require 'components.gpu_load'
 local i3bar_date_time = require 'components.date_time'
 local i3bar_clementine_play = require 'components.clementine_play'
 
-function conky_i3bar()
+local function conky_i3bar() -- luacheck: ignore conky_i3bar
     if conky_window == nil then
         return
     end
+
     local cs = cairo_xlib_surface_create(
         conky_window.display,
         conky_window.drawable,
@@ -53,7 +54,7 @@ function conky_i3bar()
     cairo_font_options_set_hint_metrics(primary_font_options, CAIRO_HINT_METRICS_DEFAULT)
     cairo_set_font_options(cr, primary_font_options)
 
-    function draw_component(component_func, pos)
+    local function draw_component(component_func, pos)
       -- pass essential variables to component_func
       return component_func{
         -- preset args
@@ -86,4 +87,6 @@ function conky_i3bar()
     cairo_destroy(cr)
     cairo_surface_destroy(cs)
     cr = nil
+    cs = nil
+    primary_font_options = nil
 end -- function conky_i3bar

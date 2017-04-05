@@ -27,7 +27,7 @@ local i3bar_gpu_load = require 'components.gpu_load'
 local i3bar_date_time = require 'components.date_time'
 local i3bar_clementine_play = require 'components.clementine_play'
 
-local function conky_i3bar() -- luacheck: ignore conky_i3bar
+function conky_i3bar() -- luacheck: ignore conky_i3bar
     if conky_window == nil then
         return
     end

@@ -10,7 +10,7 @@ conky.config = {
   own_window_transparent = false,
   own_window_argb_visual = true,
   own_window_argb_value = 0, -- 80
-  own_window_colour = 'ffffff',
+  own_window_colour = nil,
   background = false, -- for debug
   double_buffer = true,
   use_xft = true,
@@ -61,7 +61,7 @@ conky.config = {
 -- set to 1 to disable averaging
   cpu_avg_samples = 2,
 
-  lua_load = '~/.conky/i3bar/i3bar.lua',
+  lua_load = '~/.conky/conky-i3bar/i3bar.lua',
   lua_draw_hook_post = 'i3bar',
 };
 

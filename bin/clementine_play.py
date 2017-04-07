@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 #
-# anowplaying.py
+# 2to3 from:
+# https://github.com/diadara/conky-clementine/blob/master/anowplaying.py
 #
 #  Connects to dbus and retrieves
 #  information about the currently
@@ -86,4 +87,3 @@ if __name__ == '__main__':
                 print("")
         else :
             print("")
-

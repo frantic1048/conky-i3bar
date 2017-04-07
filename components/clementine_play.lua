@@ -28,10 +28,10 @@ return function (opt)
         opt.primary_font_face)
     cairo_set_font_size(opt.cr, 9)
     cairo_set_source_rgba(opt.cr, r, g, b, a)
-    cairo_show_text(opt.cr, 'Music')
+    cairo_show_text(opt.cr, 'music')
     cairo_stroke(opt.cr)
 
-    xpos = xpos + 28
+    xpos = xpos + 27
     ypos = ypos - 16
     i3bar_util.draw_svg({cr = opt.cr,
         x = xpos, y = ypos,

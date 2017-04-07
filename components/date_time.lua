@@ -27,10 +27,10 @@ return function (opt)
         opt.primary_font_face)
     cairo_set_font_size(opt.cr, 9)
     cairo_set_source_rgba(opt.cr, r, g, b, a)
-    cairo_show_text(opt.cr, 'Time')
+    cairo_show_text(opt.cr, 'time')
     cairo_stroke(opt.cr)
 
-    xpos = xpos + 24
+    xpos = xpos + 23
     ypos = ypos - 16
     i3bar_util.draw_svg({
       cr = opt.cr,

@@ -19,7 +19,7 @@ return function (opt)
     local mem_used = conky_parse('${nvidia memused}MiB')
     local mem_total = conky_parse('${nvidia memmax}MiB')
 
-    -- draw small text 'GPU load'
+    -- draw small text 'gfx'
     ypos = ypos + 16
     r, g, b, a = 0.9, 0.9, 0.9, 0.9
     cairo_move_to(opt.cr, xpos, ypos)
@@ -30,10 +30,10 @@ return function (opt)
         opt.primary_font_face)
     cairo_set_font_size(opt.cr, 9)
     cairo_set_source_rgba(opt.cr, r, g, b, a)
-    cairo_show_text(opt.cr, 'GPU load')
+    cairo_show_text(opt.cr, 'graphics')
     cairo_stroke(opt.cr)
 
-    xpos = xpos + 44
+    xpos = xpos + 42
     ypos = ypos - 16
     i3bar_util.draw_svg({cr = opt.cr,
         x = xpos, y = ypos,

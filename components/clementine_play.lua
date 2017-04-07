@@ -17,6 +17,10 @@ return function (opt)
           ${endif}
     ]])
 
+    if (string.match(playing, '^%s*$')) then
+        return
+    end
+
     -- draw small text 'music'
     ypos = ypos + 16
     r, g, b, a = 0.9, 0.9, 0.9, 0.9

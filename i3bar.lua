@@ -83,10 +83,11 @@ function conky_i3bar() -- luacheck: ignore conky_i3bar
     end
 
 
+
     cairo_font_options_destroy(primary_font_options)
-    cairo_destroy(cr)
     cairo_surface_destroy(cs)
-    cr = nil
-    cs = nil
+    cairo_destroy(cr)
     primary_font_options = nil
+    cs = nil
+    cr = nil
 end -- function conky_i3bar

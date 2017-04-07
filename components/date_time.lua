@@ -30,7 +30,7 @@ return function (opt)
     cairo_show_text(opt.cr, 'Time')
     cairo_stroke(opt.cr)
 
-    xpos = xpos + 28
+    xpos = xpos + 24
     ypos = ypos - 16
     i3bar_util.draw_svg({
       cr = opt.cr,

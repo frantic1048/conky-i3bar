@@ -79,7 +79,7 @@ function conky_i3bar() -- luacheck: ignore conky_i3bar
         draw_component(i3bar_sys_load, {x = 216, y = 0})
         draw_component(i3bar_gpu_load, {x = 549, y = 0})
         draw_component(i3bar_date_time, {x = 876, y = 0})
-        draw_component(i3bar_clementine_play, {x = 1300, y = 18})
+        draw_component(i3bar_clementine_play, {x = 1140, y = 0})
     end
 
 

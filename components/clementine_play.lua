@@ -39,6 +39,7 @@ return function (opt)
 
     ypos = ypos + 20
     xpos = xpos - 42
+    r, g, b, a = 1, 1, 1, 0.9
     cairo_move_to(opt.cr, xpos, ypos)
     cairo_select_font_face(opt.cr, 'Source Han Sans SC Light', opt.primary_font_slant, opt.primary_font_face)
     cairo_set_font_size(opt.cr, opt.primary_font_size - 3)

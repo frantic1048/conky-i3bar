@@ -56,7 +56,53 @@ tint -c ~/.config/tint2/tint2rc &
 
 ## HACKING TO THE GATE
 
-TBD.
+Code structure:
+
+```
+.
+├── i3bar.lua      -- entry program
+├── util.lua       -- utility functions
+├── conkyrc.lua    -- example conkyrc (conky config)
+├── bin            -- external executable dependencies
+├── components     -- modular drawable components
+└── resource       -- dumb resource files(image, etc.)
+```
+
+the process to add a new component:
+
+1. create `your_component.lua` under `/components`.
+2. in `/i3bar.lua`, declare your component in the beginning like other components do.
+3. draw your component with `draw_component` function
+
+Never doubt about font settings in `draw_component` function, it's just a prest, you can set your own font style inside component drawing logic(i.e. in `/components/your_component.lua`)
+
+A component is a function, the simlest component is `/components/arch_logo.lua`, it just draw an image under `/resource/arch-logo.svg`:
+
+```lua
+-- we need the util function to easily draw an SVG image
+-- see `/util.lua` to see all util functions
+local util = require 'util'
+
+-- an Arch Linux logo <(=*/ω＼*=)>
+-- every component function get a single `opt` argument
+--    it contains(for detailed list, see `draw_component` function in `/i3bar.lua`):
+--        - useful variables
+              cr: current drawing cairo context,
+                  needed with usage of any cairo related operations
+              RESOURCE_PATH: `/resource` path
+--        - position parameter from `draw_component` function
+--              opt.x, opt.y
+return function (opt)
+    util.draw_svg({cr = opt.cr,
+              x = opt.x, y = opt.y + 5,
+              h = 20, w = 20,
+              file = opt.RESOURCE_PATH .. 'arch-logo.svg'})
+end
+```
+
+Keep in mind, the component is a Lua script, so you can do anything to an "input" you want with Lua, and display an "output" by drawing with Cairo functions on `opt.cr`.
+
+For Cairo usage, see: https://www.cairographics.org/manual/ , the Lua interface is very identical to the documentation's C expression(without type signature)
 
 # Credits
 

@@ -61,7 +61,9 @@ conky.config = {
 -- set to 1 to disable averaging
   cpu_avg_samples = 2,
 
+-- MODIFY this to where you put conky-i3bar
   lua_load = '~/.conky/conky-i3bar/i3bar.lua',
+
   lua_draw_hook_post = 'i3bar',
 };
 

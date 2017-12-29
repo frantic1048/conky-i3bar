@@ -24,7 +24,8 @@ return function (opt)
     for i, w in ipairs(new_workspaces) do
         workspaces[w['num']] = {
             ['num'] = w['num'],
-            ['visible'] = w['visible']
+            ['visible'] = w['visible'],
+            ['urgent'] = w['urgent']
         }
     end
 

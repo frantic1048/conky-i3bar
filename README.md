@@ -87,9 +87,9 @@ local util = require 'util'
 -- every component function get a single `opt` argument
 --    it contains(for detailed list, see `draw_component` function in `/i3bar.lua`):
 --        - useful variables
-              cr: current drawing cairo context,
-                  needed with usage of any cairo related operations
-              RESOURCE_PATH: `/resource` path
+--            cr: current drawing cairo context,
+--                needed with usage of any cairo related operations
+--            RESOURCE_PATH: `/resource` path
 --        - position parameter from `draw_component` function
 --              opt.x, opt.y
 return function (opt)
